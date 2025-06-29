@@ -1,22 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>С Днём Рождения, Катя!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff7f0, #ffe7f7);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #c33e86;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #666;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.8;
+    }
+
+    .highlight {
+      color: #c33e86;
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1em;
+      color: #777;
+    }
+
+    .heart {
+      font-size: 1.5em;
+      color: #ff5c8d;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
 </head>
-
 <body>
-<div class="container">
-                <div id="hr-widget"></div>
-                <script type="module" src="https://homereserve.ru/widget.js"></script>
-                <script type="module">
-                    window.addEventListener("DOMContentLoaded", () => {
-                        window.homereserve.initWidgetSearch({
-                            token: "gDleLbdhMC"
-                        });
-                    });
-                </script>
-                </body>
 
+  <header>
+    <h1>С Днём Рождения, Катя!</h1>
+    <p>Ты — сердце, свет и добро этого мира 🐶🐱</p>
+  </header>
+
+  <section>
+    <p>Катя, тебе сегодня <span class="highlight">39</span>, и в эти годы ты сделала больше, чем многие за жизнь. Ты создаёшь уют не только для себя, но и для десятков хвостатых душ, которым ты подарила шанс на счастье. 💖</p>
+
+    <p>Ты умеешь слышать сердцем, лечить добротой и вдохновлять своим примером. Твой приют — не просто дом для животных, это — оазис заботы, тепла и настоящей любви. Мы восхищаемся твоей силой, преданностью делу и тем, как ты превращаешь каждое утро в праздник для тех, кто мяукает и лает рядом с тобой.</p>
+
+    <p>Пусть впереди будет много счастья, крепкого здоровья, надёжных людей рядом, и чтобы каждый день дарил тебе столько же добра, сколько ты отдаёшь этому миру. ❤️</p>
+
+    <p>С любовью и бесконечным уважением,</p>
+    <p><strong>Твои друзья и хвостатая команда 🐾</strong></p>
+
+    <div class="gallery">
+      <!-- ЗАМЕНИ src на свои фото -->
+      <img src="photo1.jpg" alt="Катя с собакой">
+      <img src="photo2.jpg" alt="Кошка в приюте">
+      <img src="photo3.jpg" alt="Катя и её питомцы">
+      <img src="photo4.jpg" alt="Щенки из приюта">
+    </div>
+  </section>
+
+  <footer>
+    <p>С любовью и благодарностью 💗 <span class="heart">❤</span></p>
+  </footer>
+
+</body>
 </html>

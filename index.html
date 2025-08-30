@@ -2,113 +2,463 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>С Днём Рождения, Катя!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Фундук и Орех — орехи премиального качества</title>
+  <meta name="description" content="Фундук и Орех — свежообжаренные орехи, полезные снеки и подарочные наборы. Доставка по России. Натурально, красиво, со вкусом." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Фундук и Орех — орехи премиального качества">
+  <meta property="og:description" content="Свежообжаренные орехи и подарочные наборы. Натурально. Красиво. Со вкусом.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#F6E7E5">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fff7f0, #ffe7f7);
-      color: #333;
-      overflow-x: hidden;
+    :root{
+      /* Палитра: мягко-женственная, но премиальная */
+      --bg:#fffdfc;
+      --surface:#ffffff;
+      --ink:#2B201A;
+      --muted:#7c6b63;
+      --rose-50:#FFF4F2;
+      --rose-100:#FBE8E5;
+      --rose-200:#F6E7E5;
+      --rose-400:#E89DA3;
+      --rose-600:#D26A77;
+      --cocoa:#8B5E3C;
+      --cocoa-700:#6e4a2e;
+      --gold:#F3C686;
+      --mint:#59C1B5;
+      --shadow:0 8px 28px rgba(61,30,14,.12);
+      --radius:22px;
+      --radius-sm:14px;
+      --max:1160px;
     }
-
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 100% -10%, var(--rose-100), transparent 60%),
+        radial-gradient(900px 400px at -10% 10%, var(--mint), transparent 35%),
+        var(--bg);
+      background-attachment: fixed;
+      line-height:1.55;
     }
-
-    header h1 {
-      font-size: 2.5em;
-      color: #c33e86;
-      margin-bottom: 10px;
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    /* Header */
+    header{position:sticky;top:0;background:rgba(255,255,255,.75);backdrop-filter:saturate(180%) blur(14px);z-index:10;border-bottom:1px solid #f2ecea}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand span{font-weight:800;font-size:18px;letter-spacing:.4px}
+    .nav a.btn{padding:10px 16px;border-radius:100px;background:linear-gradient(135deg,var(--rose-600),var(--cocoa));color:#fff;font-weight:700;box-shadow:var(--shadow)}
+    .menu{display:flex;gap:22px;align-items:center}
+    .menu a{font-weight:600;color:#5a4a42}
+    .burger{display:none;flex-direction:column;gap:4px}
+    .burger span{width:26px;height:2px;background:#674d3b;border-radius:3px}
+    /* Hero */
+    .hero{padding:54px 0 32px}
+    .hero__wrap{
+      display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center
     }
-
-    header p {
-      font-size: 1.2em;
-      color: #666;
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:var(--rose-50);color:#7a5b45;font-weight:600;border:1px solid #f1e5e1}
+    .title{
+      font-weight:800;line-height:1.1;margin:14px 0 16px;
+      font-size:clamp(28px,4.2vw,48px);
+      letter-spacing:.2px;
+      background:linear-gradient(180deg,#2B201A 0%, #5d4231 60%, #2B201A 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-
-    section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.8;
+    .subtitle{color:#6d5a51;font-size:18px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:14px 18px;border-radius:999px;font-weight:700;border:0;cursor:pointer
     }
-
-    .highlight {
-      color: #c33e86;
-      font-weight: bold;
+    .btn--primary{
+      background:linear-gradient(135deg,var(--rose-600),var(--cocoa-700));
+      color:#fff;box-shadow:var(--shadow)
     }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
+    .btn--ghost{background:#fff;border:1px solid #eadfda;color:#6a4d3a}
+    .hero__card{
+      background:linear-gradient(180deg,var(--surface),#fff6f4);
+      border:1px solid #f1e8e4;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px
     }
-
-    .gallery img {
-      width: 250px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+    .hero__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    .mini{
+      background:#fff;border:1px solid #eee2dc;border-radius:16px;padding:14px;text-align:center
     }
-
-    .gallery img:hover {
-      transform: scale(1.05);
+    .mini strong{display:block;margin-top:8px}
+    /* Sections shared */
+    section{padding:46px 0}
+    .section-title{
+      font-size:clamp(22px,3.2vw,34px);font-weight:800;margin:0 0 8px
     }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 1em;
-      color: #777;
+    .muted{color:var(--muted)}
+    /* Benefits */
+    .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{
+      background:var(--surface);border:1px solid #f0e6e1;border-radius:var(--radius-sm);padding:18px;box-shadow:var(--shadow)
     }
-
-    .heart {
-      font-size: 1.5em;
-      color: #ff5c8d;
-      animation: pulse 1.5s infinite;
+    .card h3{margin:6px 0 6px;font-size:18px}
+    .icon{
+      width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--gold),#ffe0b5)
     }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+    /* Catalog */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .product{
+      border-radius:18px;overflow:hidden;background:#fff;border:1px solid #efe6e2;box-shadow:var(--shadow);display:flex;flex-direction:column
+    }
+    .product .img{aspect-ratio:1/1;background:
+      radial-gradient(100% 60% at 50% 0%, #fff, #ffeceb 80%),
+      linear-gradient(180deg,#fff, #fff5f3)}
+      .product .body{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+    .price{font-weight:800}
+    .chip{display:inline-flex;padding:6px 10px;border-radius:999px;background:var(--rose-200);color:#6c3d38;font-weight:700;font-size:12px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    /* Gift banner */
+    .gift{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center;
+      background:linear-gradient(135deg,#fff,#ffe9e7 70%);border:1px solid #f0e2dc;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)
+    }
+    .gift .tag{background:linear-gradient(135deg,var(--mint),#B6F1E9);padding:8px 12px;border-radius:999px;font-weight:700;color:#0f3b36;display:inline-block}
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{background:#fff;border:1px solid #efe5e1;border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .stars{letter-spacing:2px;color:#f3a65b}
+    /* CTA + form */
+    .cta-box{display:grid;grid-template-columns:1fr .9fr;gap:16px}
+    form{
+      background:#fff;border:1px solid #eee3de;border-radius:18px;padding:16px;box-shadow:var(--shadow)
+    }
+    label{display:block;font-weight:600;margin:.4rem 0 .2rem}
+    input,select,textarea{
+      width:100%;padding:12px 14px;border-radius:12px;border:1px solid #e6d9d2;background:#fff
+    }
+    textarea{min-height:110px;resize:vertical}
+    .consent{display:flex;align-items:flex-start;gap:10px;margin-top:8px;font-size:12px;color:#6a5a52}
+    .consent input{margin-top:2px}
+    .policy{font-size:12px;color:#7a6a62}
+    /* Footer */
+    footer{padding:28px 0 40px;color:#6d5e57}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+    .social{display:flex;gap:10px}
+    .pill{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #efe5e1}
+    /* Logo SVG sizing */
+    .logo{width:36px;height:36px}
+    .hero-logo{width:72px;height:72px}
+    /* Animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
+    .reveal.show{opacity:1;transform:none}
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero__wrap,.gift,.cta-box{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .reviews{grid-template-columns:1fr 1fr}
+      .fgrid{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .menu{display:none}
+      .burger{display:flex}
+      .grid{grid-template-columns:1fr}
+      .reviews{grid-template-columns:1fr}
+      .hero__grid{grid-template-columns:repeat(3,1fr)}
     }
   </style>
 </head>
 <body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <!-- Встроенный логотип (стилизованный крылатый фундук) -->
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F5C88D"/>
+            <stop offset="1" stop-color="#C17B42"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 12c9 0 16 7 16 16 0 11-8 18-16 24-8-6-16-13-16-24 0-9 7-16 16-16z" fill="url(#g1)" stroke="#5a3a29" stroke-width="2"/>
+        <path d="M18 24c-7-1-12 2-14 8 6 4 14 5 20 3M46 24c7-1 12 2 14 8-6 4-14 5-20 3" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
+        <path d="M32 20c-5 3-7 8-7 12 4 1 7-1 7-1s3 2 7 1c0-4-2-9-7-12z" fill="#7b3f2d" opacity=".25"/>
+      </svg>
+      <span>Фундук и Орех</span>
+    </a>
+    <nav class="menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#gifts">Подарки</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+      <a href="#order" class="btn">Сделать заказ</a>
+    </nav>
+    <button class="burger" aria-label="Открыть меню" onclick="document.querySelector('.menu').style.display = (getComputedStyle(document.querySelector('.menu')).display==='none'?'flex':'none')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-  <header>
-    <h1>С Днём Рождения, Катя!</h1>
-    <p>Ты — сердце, свет и добро этого мира 🐶🐱</p>
-  </header>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__wrap">
+      <div class="reveal">
+        <span class="badge">
+          <svg class="hero-logo" viewBox="0 0 64 64" aria-hidden="true">
+            <use href=".logo"></use>
+          </svg>
+          Любимые орехи — каждый день вкуснее
+        </span>
+        <h1 class="title">Натуральные орехи и наборы, <br>которые хочется дарить и есть самой</h1>
+        <p class="subtitle">Свежообжаренные орехи, пасты и миксы без сахара. Красивые упаковки, аккуратная доставка и забота о здоровье — всё в одном месте.</p>
+        <div class="cta">
+          <a href="#catalog" class="btn btn--primary">Смотреть каталог</a>
+          <a href="#gifts" class="btn btn--ghost">Подарочные наборы</a>
+        </div>
+      </div>
 
-  <section>
-    <p>Катя, тебе сегодня <span class="highlight">39</span>, и в эти годы ты сделала больше, чем многие за жизнь. Ты создаёшь уют не только для себя, но и для хвостатых душ, которым ты подарила счастье. 💖</p>
-
-    <p>Ты умеешь слышать сердцем, лечить добротой и вдохновлять своим примером. Твой приют — не просто дом для животных, это — оазис заботы, тепла и настоящей любви. Мы восхищаемся твоей силой, преданностью делу и тем, как ты превращаешь каждое утро в праздник для тех, кто мяукает и лает рядом с тобой.</p>
-
-    <p>Пусть впереди будет много счастья, крепкого здоровья, надёжных людей рядом, и чтобы каждый день дарил тебе столько же добра, сколько ты отдаёшь этому миру. ❤️</p>
-
-    <p>С любовью и бесконечным уважением,</p>
-    <p><strong>Твои друзья и хвостатая команда 🐾</strong></p>
-
-    <div class="gallery">
-      <!-- ЗАМЕНИ src на свои фото -->
-      <img src="IMG_0590.png" alt="Семья">
-      <img src="IMG_0591.png" alt="Катя и Бостон">
-      <img src="IMG_0592.png" alt="Катя и Леди">
-      <img src="IMG_0593.png" alt="Катя, Леди и Одри">
+      <aside class="hero__card reveal">
+        <div class="row">
+          <div class="pill">Топ-выбор недели</div>
+          <span class="chip">-10% при первом заказе</span>
+        </div>
+        <div class="hero__grid">
+          <div class="mini">
+            <div class="icon">🥜</div>
+            <strong>Фундук свежей обжарки</strong>
+            <span class="muted">хруст и аромат</span>
+          </div>
+          <div class="mini">
+            <div class="icon">🌰</div>
+            <strong>Пасты без сахара</strong>
+            <span class="muted">только орех и щепотка соли</span>
+          </div>
+          <div class="mini">
+            <div class="icon">🎁</div>
+            <strong>Подарочные боксы</strong>
+            <span class="muted">готовое решение для заботы</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <footer>
-    <p>С любовью и благодарностью 💗 <span class="heart">❤</span></p>
-  </footer>
+  <!-- BENEFITS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Почему «Фундук и Орех»</h2>
+      <p class="muted">Качество, красота и польза — без лишнего.</p>
+      <div class="benefits reveal">
+        <div class="card"><div class="icon">🌿</div><h3>Натурально</h3><p class="muted">Без ароматизаторов и сахара. Только чистые ингредиенты.</p></div>
+        <div class="card"><div class="icon">🔥</div><h3>Свежая обжарка</h3><p class="muted">Жарим малыми партиями — орех хрустит и пахнет.</p></div>
+        <div class="card"><div class="icon">🎀</div><h3>Эстетика</h3><p class="muted">Минималистичные упаковки, которые приятно дарить.</p></div>
+        <div class="card"><div class="icon">🚚</div><h3>Доставка</h3><p class="muted">Бережно упаковываем и отправляем по всей России.</p></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- CATALOG -->
+  <section id="catalog">
+    <div class="container">
+      <h2 class="section-title">Каталог хитовых позиций</h2>
+      <p class="muted">Цены примерные — настроим под маркетплейсы или ваш заказ.</p>
+
+      <div class="grid reveal">
+        <!-- Карточка товара -->
+        <article class="product">
+          <div class="img" role="img" aria-label="Фундук свежей обжарки"></div>
+          <div class="body">
+            <div class="row">
+              <strong>Фундук, 250 г</strong>
+              <span class="chip">NEW</span>
+            </div>
+            <span class="muted">обжарка medium, без соли</span>
+            <div class="row">
+              <span class="price">от 450 ₽</span>
+              <button class="btn btn--primary" onclick="toast('Добавлено в корзину')">В корзину</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="img" aria-label="Миндаль без кожуры"></div>
+          <div class="body">
+            <div class="row"><strong>Миндаль, 250 г</strong><span class="chip">ХИТ</span></div>
+            <span class="muted">свежая обжарка, без кожуры</span>
+            <div class="row"><span class="price">от 490 ₽</span><button class="btn btn--primary" onclick="toast('Добавлено в корзину')">В корзину</button></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="img" aria-label="Паста фундуковая"></div>
+          <div class="body">
+            <div class="row"><strong>Паста фундуковая, 200 г</strong><span class="chip">100% орех</span></div>
+            <span class="muted">без сахара и масел</span>
+            <div class="row"><span class="price">от 390 ₽</span><button class="btn btn--primary" onclick="toast('Добавлено в корзину')">В корзину</button></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="img" aria-label="Микс &laquo;Энергия&raquo;"></div>
+          <div class="body">
+            <div class="row"><strong>Микс «Энергия», 250 г</strong><span class="chip">без сахара</span></div>
+            <span class="muted">фундук, кешью, клюква, тыквенные семечки</span>
+            <div class="row"><span class="price">от 420 ₽</span><button class="btn btn--primary" onclick="toast('Добавлено в корзину')">В корзину</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section id="gifts">
+    <div class="container gift reveal">
+      <div>
+        <span class="tag">Подарки на любой случай</span>
+        <h2 class="section-title" style="margin-top:10px">Соберите свой бокс за 2 минуты</h2>
+        <p class="muted">Выбирайте орехи и пасты, добавляйте открытку — мы красиво упакуем и отправим адресату.</p>
+        <div class="cta">
+          <a href="#order" class="btn btn--primary">Собрать бокс</a>
+          <a href="#faq" class="btn btn--ghost">Как это работает?</a>
+        </div>
+      </div>
+      <div>
+        <div class="product" aria-hidden="true">
+          <div class="img"></div>
+          <div class="body">
+            <div class="row"><strong>Бокс «Нежность»</strong><span class="chip">3 позиции</span></div>
+            <span class="muted">фундук, миндаль, паста, открытка</span>
+            <div class="row"><span class="price">от 1490 ₽</span><button class="btn btn--primary" onclick="toast('Добавлено')">В корзину</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="container">
+      <h2 class="section-title">Нас любят</h2>
+      <p class="muted">Реальные отзывы наших покупательниц</p>
+      <div class="reviews reveal">
+        <div class="review"><div class="stars">★★★★★</div><p>Получила бокс на день рождения — невероятно красиво, а паста просто космос. Теперь беру орехи только здесь.</p><strong>— Мария, 34</strong></div>
+        <div class="review"><div class="stars">★★★★★</div><p>Отличная обжарка, вкус раскрывается. Упаковка минималистичная, муж тоже оценил.</p><strong>— Анна, 36</strong></div>
+        <div class="review"><div class="stars">★★★★★</div><p>Быстрая доставка и приятные детали. Беру наборы коллегам — всегда попадаю в точку.</p><strong>— Екатерина, 32</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + FORM -->
+  <section id="order">
+    <div class="container cta-box reveal">
+      <div class="card">
+        <h2 class="section-title">Сделать заказ или запросить предложение</h2>
+        <p class="muted">Оставьте контакты — отправим варианты по вашему запросу в мессенджер.</p>
+        <ul class="muted">
+          <li>Индивидуальные наборы к праздникам</li>
+          <li>Корпоративные подарки с фирменной открыткой</li>
+          <li>Постоянные поставки в офис</li>
+        </ul>
+      </div>
+      <form id="leadForm" onsubmit="sendLead(event)">
+        <label for="name">Ваше имя</label>
+        <input id="name" name="name" placeholder="Например, Анастасия" required>
+        <label for="phone">Телефон или Telegram</label>
+        <input id="phone" name="phone" placeholder="+7 (___) ___-__-__ / @username" required>
+        <label for="want">Что хотите заказать?</label>
+        <textarea id="want" name="want" placeholder="Пара банок фундука, паста и милый бокс — к субботе ☺"></textarea>
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">Я даю согласие на обработку персональных данных и принимаю <a href="#policy">Политику конфиденциальности</a>. Согласие можно отозвать в любой момент. </label>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px">
+          <button class="btn btn--primary" type="submit">Отправить</button>
+          <a class="btn btn--ghost" href="tel:+79990000000">Позвонить</a>
+        </div>
+        <p id="formMsg" class="muted" style="margin-top:10px"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ / POLICY -->
+  <section id="faq">
+    <div class="container reveal">
+      <h2 class="section-title">Частые вопросы</h2>
+      <details class="card"><summary><strong>Как хранить орехи?</strong></summary><p class="muted">В плотно закрытой упаковке, в сухом прохладном месте. Пасты — в холодильнике.</p></details>
+      <details class="card"><summary><strong>Есть ли сахар/масла в пастах?</strong></summary><p class="muted">Нет. Только орехи и щепотка соли по желанию.</p></details>
+      <details class="card"><summary><strong>Как быстро доставляете?</strong></summary><p class="muted">По Петербургу — в день заказа или на следующий. По России — от 2 до 7 дней транспортной компанией.</p></details>
+      <div id="policy" class="policy card">
+        <strong>Политика конфиденциальности (кратко)</strong>
+        <p>Мы собираем минимальные данные (имя, контакт, комментарий) для связи по заказу и не передаем их третьим лицам, кроме служб доставки. Срок хранения — не более 24 месяцев. Для запросов по данным: hello@hazelnut.ru.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container fgrid">
+    <div>
+      <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12c9 0 16 7 16 16 0 11-8 18-16 24-8-6-16-13-16-24 0-9 7-16 16-16z" fill="url(#g1)" stroke="#5a3a29" stroke-width="2"/></svg><span style="font-weight:800">Фундук и Орех</span></div>
+      <p class="muted">Натуральные орехи и подарочные наборы. Красиво, полезно, с заботой.</p>
+      <div class="social">
+        <a class="pill" href="#" aria-label="Telegram">TG</a>
+        <a class="pill" href="#" aria-label="VK">VK</a>
+        <a class="pill" href="mailto:hello@hazelnut.ru">hello@hazelnut.ru</a>
+      </div>
+    </div>
+    <div>
+      <strong>Контакты</strong>
+      <p class="muted">Тел.: <a href="tel:+79990000000">+7 (999) 000-00-00</a><br>Санкт-Петербург</p>
+    </div>
+    <div>
+      <strong>Партнёрам</strong>
+      <p class="muted">Корпоративные подарки и опт — напишите нам, соберём предложение за 24 часа.</p>
+    </div>
+  </div>
+  <div class="container" style="margin-top:12px"><small class="muted">© 2025 Фундук и Орех</small></div>
+</footer>
+
+<script>
+  // Анимации появления
+  const io = new IntersectionObserver((e)=>e.forEach(el=>el.isIntersecting && el.target.classList.add('show')), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Тосты
+  function toast(text){
+    let t=document.createElement('div');
+    t.textContent=text;
+    t.style.position='fixed';t.style.left='50%';t.style.top='24px';t.style.transform='translateX(-50%)';
+    t.style.background='linear-gradient(135deg,#D26A77,#6e4a2e)';
+    t.style.color='#fff';t.style.padding='12px 16px';t.style.borderRadius='999px';t.style.boxShadow='var(--shadow)';
+    t.style.zIndex=1000;document.body.appendChild(t);setTimeout(()=>t.remove(),1800);
+  }
+
+  // Отправка формы (заглушка). Подключите свой Telegram-бот или почту.
+  async function sendLead(e){
+    e.preventDefault();
+    const name = e.target.name.value.trim();
+    const phone = e.target.phone.value.trim();
+    const want = e.target.want.value.trim();
+    // TODO: заменить на реальную интеграцию (например, fetch к вашему бэкенду/Telegram API)
+    await new Promise(r=>setTimeout(r,600));
+    document.getElementById('formMsg').textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+    e.target.reset();
+  }
+</script>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Фундук и Орех",
+  "url":"https://example.com",
+  "sameAs":[],
+  "address":{"@type":"PostalAddress","addressLocality":"Санкт-Петербург","addressCountry":"RU"},
+  "telephone":"+79990000000"
+}
+</script>
 </body>
 </html>
